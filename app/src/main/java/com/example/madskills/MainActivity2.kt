@@ -1,5 +1,6 @@
 package com.example.madskills
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +16,10 @@ class MainActivity2 : AppCompatActivity() {
 
     private var rNews: RecyclerView? = null
     private var news: ArrayList<NewsClass> = ArrayList()
+    private var catlogs: ArrayList<CatlogClass> = ArrayList()
+    private var rCatlog: RecyclerView? = null
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -39,18 +43,12 @@ class MainActivity2 : AppCompatActivity() {
 
             override fun onFailure(call: Call<ArrayList<NewsClass>>, t: Throwable) {
                 Log.e("Беда.", t.message.toString())
-
             }
-
-
         })
     }
         fun updateRecyclerView(news: ArrayList<NewsClass>){
             rNews?.layoutManager =  LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
             val recyclerAdapter = NewsAdapter(news)
             rNews?.adapter = recyclerAdapter
-
-
-
     }
 }

@@ -8,4 +8,7 @@ interface RetrofitServices {
     @GET("api/news")
     fun getNews(): Call<ArrayList<NewsClass>> // Получить список
 
+    @GET("api/catalog")
+    fun getCatlog(): Call<ArrayList<CatlogClass>>
+
 }
