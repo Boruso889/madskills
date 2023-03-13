@@ -25,7 +25,7 @@ data class CatlogClass(
     val catlogprep: String,
 
     @SerializedName("bio")
-    val catlogbio: String,
+    val catlogbio: String
 
 
 

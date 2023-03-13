@@ -16,8 +16,8 @@ class MainActivity2 : AppCompatActivity() {
 
     private var rNews: RecyclerView? = null
     private var news: ArrayList<NewsClass> = ArrayList()
-    private var catlogs: ArrayList<CatlogClass> = ArrayList()
-    private var rCatlog: RecyclerView? = null
+    //private var catlogs: ArrayList<CatlogClass> = ArrayList()
+    //private var rCatlog: RecyclerView? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +25,7 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         rNews = findViewById(R.id.rNews)
+        // rCatlog = findViewById(R.id.rCatlog)
 
         val retrofitServices: RetrofitServices =
             RetrofitClient.getClient("https://medic.madskill.ru/")
@@ -46,9 +47,41 @@ class MainActivity2 : AppCompatActivity() {
             }
         })
     }
-        fun updateRecyclerView(news: ArrayList<NewsClass>){
-            rNews?.layoutManager =  LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-            val recyclerAdapter = NewsAdapter(news)
-            rNews?.adapter = recyclerAdapter
+
+    fun updateRecyclerView(news: ArrayList<NewsClass>) {
+        rNews?.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        val recyclerAdapter = NewsAdapter(news)
+        rNews?.adapter = recyclerAdapter
+
     }
-}
+
+
+    private var catlogs: ArrayList<CatlogClass> = ArrayList()
+    private var rCatlog: RecyclerView? = null
+    val retrofitServices: RetrofitServices =
+        RetrofitClient.getClient("https://medic.madskill.ru/")
+            .create(RetrofitServices::class.java)
+
+    val response = retrofitServices.getCatlog().enqueue(object : Callback<ArrayList<CatlogClass>> {
+        override fun onResponse(
+            call: Call<ArrayList<CatlogClass>>,
+            response: Response<ArrayList<CatlogClass>>
+        ) {
+            catlogs = response.body()!! // Создаем глобальный список карточек
+            updateRecyclerView(catlogs)
+            Log.e("Allo", catlogs.toString())
+        }
+
+        override fun onFailure(call: Call<ArrayList<CatlogClass>>, t: Throwable) {
+            Log.e("Беда.", t.message.toString())
+        }
+    })
+
+    fun updateRecyclerView(catlogs: ArrayList<CatlogClass>) {
+        rCatlog?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        val recyclerAdapter = CatlogAdapter(catlogs)
+        rCatlog?.adapter = recyclerAdapter
+    }
+
+
+

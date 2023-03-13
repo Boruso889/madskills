@@ -15,7 +15,7 @@ class NewsAdapter (private val news: ArrayList<NewsClass>): RecyclerView.Adapter
         val tvNewsName: TextView = itemView.findViewById(R.id.tvNewsName)
         val tvNewsDesc: TextView = itemView.findViewById(R.id.tvNewsDesc)
         val tvNewsPrice: TextView = itemView.findViewById(R.id.tvNewsPrice)
-        val ivNews: ImageView = itemView.findViewById(R.id.ivNews)
+        //val ivNews: ImageView = itemView.findViewById(R.id.ivNews)
     }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val itemView =
@@ -30,7 +30,7 @@ class NewsAdapter (private val news: ArrayList<NewsClass>): RecyclerView.Adapter
         holder.tvNewsName.text = new.newsname
         holder.tvNewsDesc.text = new.newsdesc
         // holder.ivNews.clipToOutline　= true
-        Picasso.get().load(new.newsimg).error(R.drawable.noimg).into(holder.ivNews)
+       // Picasso.get().load(new.newsimg).error(R.drawable.noimg).into(holder.ivNews)
     }
 
     override fun getItemCount() = news.size
