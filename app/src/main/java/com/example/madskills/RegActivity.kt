@@ -22,9 +22,9 @@ class RegActivity : AppCompatActivity() {
                 Toast.makeText(this@RegActivity, "Неправильно указана почта." , Toast.LENGTH_LONG).show()
 
             } else {
-                val intent = Intent(this@RegActivity, MainActivity2::class.java)
+                val intent = Intent(this@RegActivity, CardActivity::class.java)
                 startActivity(intent)
-                this@RegActivity.finish()
+                this@RegActivity.onPause()
             }
             }
     }

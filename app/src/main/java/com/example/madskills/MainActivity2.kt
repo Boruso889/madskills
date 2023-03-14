@@ -54,9 +54,10 @@ class MainActivity2 : AppCompatActivity() {
         rNews?.adapter = recyclerAdapter
 
     }
+}
 
 
-    private var catlogs: ArrayList<CatlogClass> = ArrayList()
+   /* private var catlogs: ArrayList<CatlogClass> = ArrayList()
     private var rCatlog: RecyclerView? = null
     val retrofitServices: RetrofitServices =
         RetrofitClient.getClient("https://medic.madskill.ru/")
@@ -81,7 +82,7 @@ class MainActivity2 : AppCompatActivity() {
         rCatlog?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         val recyclerAdapter = CatlogAdapter(catlogs)
         rCatlog?.adapter = recyclerAdapter
-    }
+    }*/
 
 
 
