@@ -16,6 +16,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".OnboardFragmentThree"
+            android:exported="false" />
+        <activity
+            android:name=".OnboardFragmentTwo"
+            android:exported="false" />
+        <activity
+            android:name=".OnboardFragmentOne"
+            android:exported="false" />
+        <activity
+            android:name=".OnboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activityMain"
+            android:exported="false" />
+        <activity
             android:name=".CardActivity"
             android:exported="false" />
         <activity
