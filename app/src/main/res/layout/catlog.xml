@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/cardCatlog"
         android:layout_width="0dp"
         android:layout_height="180dp"
         android:layout_marginStart="8dp"
@@ -31,8 +31,8 @@
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/cardView3"
-        app:layout_constraintTop_toTopOf="@+id/cardView3" />
+        app:layout_constraintStart_toStartOf="@+id/cardCatlog"
+        app:layout_constraintTop_toTopOf="@+id/cardCatlog" />
 
     <TextView
         android:id="@+id/tvCatlogTime"
@@ -67,6 +67,6 @@
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView3"
-        app:layout_constraintEnd_toEndOf="@+id/cardView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/cardCatlog"
+        app:layout_constraintEnd_toEndOf="@+id/cardCatlog" />
 </androidx.constraintlayout.widget.ConstraintLayout>

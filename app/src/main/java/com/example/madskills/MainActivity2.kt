@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
@@ -21,14 +22,24 @@ class MainActivity2 : AppCompatActivity() {
     //private var news: ArrayList<NewsClass> = ArrayList()
     private var catlogs: ArrayList<CatlogClass> = ArrayList()
     private var rCatlog: RecyclerView? = null
+    private lateinit var dialog: BottomSheetDialog
+    private lateinit var CardCat: CardView
+    private val list = ArrayList<String>()
+    private lateinit var catlogAdapter: CatlogAdapter
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        CardCat = findViewById(R.id.cardCatlog)
+        for (i in 1..10) {
+            list.add("item $i")
+        }
+        CardCat.setOnClickListener {
+            showBottomSheet()
 
-        /*  rNews = findViewById(R.id.rNews)
+            /*  rNews = findViewById(R.id.rNews)
         // rCatlog = findViewById(R.id.rCatlog)
 
         val retrofitServices: RetrofitServices =
@@ -61,33 +72,43 @@ class MainActivity2 : AppCompatActivity() {
 }
 */
 
-        rCatlog = findViewById(R.id.rCatlog)
-        val retrofitServices: RetrofitServices =
-            RetrofitClient.getClient("https://medic.madskill.ru/")
-                .create(RetrofitServices::class.java)
+            rCatlog = findViewById(R.id.rCatlog)
+            val retrofitServices: RetrofitServices =
+                RetrofitClient.getClient("https://medic.madskill.ru/")
+                    .create(RetrofitServices::class.java)
 
-        val response =
-            retrofitServices.getCatlog().enqueue(object : Callback<ArrayList<CatlogClass>> {
-                override fun onResponse(
-                    call: Call<ArrayList<CatlogClass>>,
-                    response: Response<ArrayList<CatlogClass>>
-                ) {
-                    catlogs = response.body()!! // Создаем глобальный список карточек
-                    updateRecyclerView(catlogs)
-                    Log.e("Allo", catlogs.toString())
-                }
+            val response =
+                retrofitServices.getCatlog().enqueue(object : Callback<ArrayList<CatlogClass>> {
+                    override fun onResponse(
+                        call: Call<ArrayList<CatlogClass>>,
+                        response: Response<ArrayList<CatlogClass>>
+                    ) {
+                        catlogs = response.body()!! // Создаем глобальный список карточек
+                        Log.e("Allo", catlogs.toString())
+                    }
 
-                override fun onFailure(call: Call<ArrayList<CatlogClass>>, t: Throwable) {
-                    Log.e("Беда.", t.message.toString())
-                }
-            })
-    }
+                    override fun onFailure(call: Call<ArrayList<CatlogClass>>, t: Throwable) {
+                        Log.e("Беда.", t.message.toString())
+                    }
+                })
+        }
 
-    fun updateRecyclerView(catlogs: ArrayList<CatlogClass>) {
+        fun updateRecyclerView(catlogs: ArrayList<CatlogClass>) {
             rCatlog?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
             val recyclerAdapter = CatlogAdapter(catlogs)
             rCatlog?.adapter = recyclerAdapter
         }
     }
+        private fun showBottomSheet() {
+            val dialogView = layoutInflater.inflate(R.layout.bottom_sheet, null)
+            dialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+            dialog.setContentView(dialogView)
+
+            catlogAdapter = CatlogAdapter(catlogs)
+            dialog.show()
+        }
+    }
+
+
 
 
