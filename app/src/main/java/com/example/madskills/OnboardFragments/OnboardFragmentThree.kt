@@ -13,12 +13,19 @@ import com.example.madskills.R
 import com.example.madskills.RegActivity
 
 class OnboardFragmentThree : Fragment() {
-
+    private lateinit var bind: TextView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?): View? {
+
         return inflater.inflate(R.layout.activity_onboard_fragment_three, container, false)
+        activity?.let{
+            val intent = Intent (it, RegActivity::class.java)
+            it.startActivity(intent)
+        }
+        }
+
     }
+
 }

@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
 
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,24 +22,29 @@ class MainActivity2 : AppCompatActivity() {
 
     //private var rNews: RecyclerView? = null
     //private var news: ArrayList<NewsClass> = ArrayList()
-    private var catlogs: ArrayList<CatlogClass> = ArrayList()
-    private var rCatlog: RecyclerView? = null
+    //private lateinit var selectItem: TextView
+    private lateinit var selectItem: RecyclerView
     private lateinit var dialog: BottomSheetDialog
-    private lateinit var CardCat: CardView
-    private val list = ArrayList<String>()
     private lateinit var catlogAdapter: CatlogAdapter
+    private var catlogs: ArrayList<CatlogClass> = ArrayList()
+    private var CatlogRecycle: RecyclerView? = null
+    private val list = ArrayList<String>()
+
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        CardCat = findViewById(R.id.cardCatlog)
-        for (i in 1..10) {
+        selectItem = findViewById(R.id.rCatlog)
+        for (i in 1..10){
             list.add("item $i")
         }
-        CardCat.setOnClickListener {
+        selectItem.setOnClickListener{
             showBottomSheet()
+
+        }
 
             /*  rNews = findViewById(R.id.rNews)
         // rCatlog = findViewById(R.id.rCatlog)
@@ -72,18 +79,18 @@ class MainActivity2 : AppCompatActivity() {
 }
 */
 
-            rCatlog = findViewById(R.id.rCatlog)
+            CatlogRecycle = findViewById(R.id.rCatlog)
             val retrofitServices: RetrofitServices =
                 RetrofitClient.getClient("https://medic.madskill.ru/")
                     .create(RetrofitServices::class.java)
 
-            val response =
-                retrofitServices.getCatlog().enqueue(object : Callback<ArrayList<CatlogClass>> {
+            val response = retrofitServices.getCatlog().enqueue(object : Callback<ArrayList<CatlogClass>> {
                     override fun onResponse(
                         call: Call<ArrayList<CatlogClass>>,
                         response: Response<ArrayList<CatlogClass>>
                     ) {
                         catlogs = response.body()!! // Создаем глобальный список карточек
+                        updateRecyclerView(catlogs)
                         Log.e("Allo", catlogs.toString())
                     }
 
@@ -94,11 +101,11 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         fun updateRecyclerView(catlogs: ArrayList<CatlogClass>) {
-            rCatlog?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+            CatlogRecycle?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
             val recyclerAdapter = CatlogAdapter(catlogs)
-            rCatlog?.adapter = recyclerAdapter
+            CatlogRecycle?.adapter = recyclerAdapter
         }
-    }
+
         private fun showBottomSheet() {
             val dialogView = layoutInflater.inflate(R.layout.bottom_sheet, null)
             dialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
@@ -107,7 +114,10 @@ class MainActivity2 : AppCompatActivity() {
             catlogAdapter = CatlogAdapter(catlogs)
             dialog.show()
         }
-    }
+}
+
+
+
 
 
 

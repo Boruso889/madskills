@@ -1,4 +1,4 @@
-/*package com.example.madskills
+package com.example.madskills
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +17,8 @@ class OnboardActivity : AppCompatActivity() {
     private val data= mutableListOf<String>()
     private val fragmentList = ArrayList<Fragment>()
     private lateinit var viewPager: ViewPager2
-    private val tvOBEnd: TextView
+   // private lateinit var btnNext: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +31,19 @@ class OnboardActivity : AppCompatActivity() {
 
         viewPager.adapter = OnboardFragmentAdapter(this, fragmentList)
         viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        tvOBEnd.setOnClickListener {
+        /*btnNext.setOnClickListener {
             viewPager.apply {
-                val intent = Intent(this@MainActivity, MainActivity2::class.java)
+                val intent = Intent(this@OnboardActivity, RegActivity::class.java)
                 startActivity(intent)
-                this@MainActivity.finish()
-        }
+                this@OnboardActivity.finish()
+            }
+        }*/
+    }
 
     private fun castView(){
         viewPager = findViewById(R.id.view_pager2)
+        //btnNext = findViewById(R.id.tvOBEnd)
+
 
     }
     private fun addToList() {
@@ -47,4 +52,4 @@ class OnboardActivity : AppCompatActivity() {
         }
     }
 
-}*/
+}
