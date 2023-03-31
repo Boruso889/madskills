@@ -23,7 +23,7 @@ class MainActivity2 : AppCompatActivity() {
     //private var rNews: RecyclerView? = null
     //private var news: ArrayList<NewsClass> = ArrayList()
     //private lateinit var selectItem: TextView
-    private lateinit var selectItem: RecyclerView
+    private lateinit var selectItem: CardView
     private lateinit var dialog: BottomSheetDialog
     private lateinit var catlogAdapter: CatlogAdapter
     private var catlogs: ArrayList<CatlogClass> = ArrayList()
@@ -37,7 +37,7 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        selectItem = findViewById(R.id.rCatlog)
+        selectItem = findViewById(R.id.cardCatlog)
         for (i in 1..10){
             list.add("item $i")
         }
@@ -45,6 +45,7 @@ class MainActivity2 : AppCompatActivity() {
             showBottomSheet()
 
         }
+
 
             /*  rNews = findViewById(R.id.rNews)
         // rCatlog = findViewById(R.id.rCatlog)

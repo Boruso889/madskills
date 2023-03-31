@@ -20,12 +20,12 @@ class OnboardFragmentThree : Fragment() {
         savedInstanceState: Bundle?): View? {
 
         return inflater.inflate(R.layout.activity_onboard_fragment_three, container, false)
-        activity?.let{
+        /*activity?.let{
             val intent = Intent (it, RegActivity::class.java)
             it.startActivity(intent)
         }
         }
-
+*/
     }
 
 }
