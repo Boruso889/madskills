@@ -22,7 +22,7 @@ class RegActivity : AppCompatActivity() {
                 Toast.makeText(this@RegActivity, "Неправильно указана почта." , Toast.LENGTH_LONG).show()
 
             } else {
-                val intent = Intent(this@RegActivity, MainActivity2::class.java)
+                val intent = Intent(this@RegActivity, MainFragment1::class.java)
                 startActivity(intent)
                 this@RegActivity.finish()
             }
