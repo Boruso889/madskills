@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rNews" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rCatlog"
+        android:id="@+id/rCatlo"
         android:layout_width="0dp"
         android:layout_height="330dp"
         android:layout_marginTop="8dp"

@@ -32,6 +32,7 @@ class CatlogAdapter (private val catlogs: ArrayList<CatlogClass>): RecyclerView.
         holder.tvCatlogName.text = catlog.catlogname
         holder.tvCatlogPrice.text = "${catlog.catlogprice.toString()} ₽"
         holder.tvCatlogTime.text = catlog.catlogtime
+        holder.selectItem.text = catlog.toString()
 
     }
 

@@ -23,12 +23,9 @@ class MainActivity2 : AppCompatActivity() {
     //private var rNews: RecyclerView? = null
     //private var news: ArrayList<NewsClass> = ArrayList()
     //private lateinit var selectItem: TextView
-    private lateinit var selectItem: RecyclerView
-    private lateinit var dialog: BottomSheetDialog
-    private lateinit var catlogAdapter: CatlogAdapter
+
     private var catlogs: ArrayList<CatlogClass> = ArrayList()
     private var CatlogRecycle: RecyclerView? = null
-    private val list = ArrayList<String>()
 
 
 
@@ -37,17 +34,8 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        selectItem = findViewById(R.id.rCatlog)
-        for (i in 1..10){
-            list.add("item $i")
-        }
-        selectItem.setOnClickListener{
-            showBottomSheet()
 
-        }
-
-
-            /*  rNews = findViewById(R.id.rNews)
+        /*  rNews = findViewById(R.id.rNews)
         // rCatlog = findViewById(R.id.rCatlog)
 
         val retrofitServices: RetrofitServices =
@@ -80,41 +68,34 @@ class MainActivity2 : AppCompatActivity() {
 }
 */
 
-            CatlogRecycle = findViewById(R.id.rCatlog)
-            val retrofitServices: RetrofitServices =
-                RetrofitClient.getClient("https://medic.madskill.ru/")
-                    .create(RetrofitServices::class.java)
+        CatlogRecycle = findViewById(R.id.rCatlo)
+        val retrofitServices: RetrofitServices =
+            RetrofitClient.getClient("https://medic.madskill.ru/")
+                .create(RetrofitServices::class.java)
 
-            val response = retrofitServices.getCatlog().enqueue(object : Callback<ArrayList<CatlogClass>> {
-                    override fun onResponse(
-                        call: Call<ArrayList<CatlogClass>>,
-                        response: Response<ArrayList<CatlogClass>>
-                    ) {
-                        catlogs = response.body()!! // Создаем глобальный список карточек
-                        updateRecyclerView(catlogs)
-                        Log.e("Allo", catlogs.toString())
-                    }
+        val response =
+            retrofitServices.getCatlog().enqueue(object : Callback<ArrayList<CatlogClass>> {
+                override fun onResponse(
+                    call: Call<ArrayList<CatlogClass>>,
+                    response: Response<ArrayList<CatlogClass>>
+                ) {
+                    catlogs = response.body()!! // Создаем глобальный список карточек
+                    updateRecyclerView(catlogs)
+                    Log.e("Allo", catlogs.toString())
+                }
 
-                    override fun onFailure(call: Call<ArrayList<CatlogClass>>, t: Throwable) {
-                        Log.e("Беда.", t.message.toString())
-                    }
-                })
-        }
+                override fun onFailure(call: Call<ArrayList<CatlogClass>>, t: Throwable) {
+                    Log.e("Беда.", t.message.toString())
+                }
+            })
+    }
 
-        fun updateRecyclerView(catlogs: ArrayList<CatlogClass>) {
-            CatlogRecycle?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-            val recyclerAdapter = CatlogAdapter(catlogs)
-            CatlogRecycle?.adapter = recyclerAdapter
-        }
+    fun updateRecyclerView(catlogs: ArrayList<CatlogClass>) {
+        CatlogRecycle?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        val recyclerAdapter = CatlogAdapter(catlogs)
+        CatlogRecycle?.adapter = recyclerAdapter
+    }
 
-        private fun showBottomSheet() {
-            val dialogView = layoutInflater.inflate(R.layout.bottom_sheet, null)
-            dialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
-            dialog.setContentView(dialogView)
-
-            catlogAdapter = CatlogAdapter(catlogs)
-            dialog.show()
-        }
 }
 
 
