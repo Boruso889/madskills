@@ -5,8 +5,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,7 +16,7 @@ class CatlogAdapter (private val catlogs: ArrayList<CatlogClass>): RecyclerView.
         val tvCatlogPrice: TextView = itemView.findViewById(R.id.tvCatlogPrice)
         val tvCatlogTime: TextView = itemView.findViewById(R.id.tvCatlogTime)
         val CatlogBgItem: ConstraintLayout = itemView.findViewById(R.id.CatlogBgItem)
-        val selectItem: TextView = itemView.findViewById(R.id.tvCatBtn)
+        val tvCatBtn: Button = itemView.findViewById(R.id.tvCatBtn)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,7 +32,7 @@ class CatlogAdapter (private val catlogs: ArrayList<CatlogClass>): RecyclerView.
         holder.tvCatlogName.text = catlog.catlogname
         holder.tvCatlogPrice.text = "${catlog.catlogprice.toString()} ₽"
         holder.tvCatlogTime.text = catlog.catlogtime
-        holder.selectItem.text = catlog.toString()
+
 
     }
 
