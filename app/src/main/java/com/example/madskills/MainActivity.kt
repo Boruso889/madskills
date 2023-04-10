@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                val intent = Intent(this@MainActivity, RegActivity::class.java)
+                val intent = Intent(this@MainActivity, CardActivity::class.java)
                 startActivity(intent)
                 this@MainActivity.finish()
             }

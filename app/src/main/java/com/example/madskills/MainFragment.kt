@@ -23,10 +23,14 @@ class MainFragment : Fragment() {
 
 
     private var catlogs: ArrayList<CatlogClass> = ArrayList()
-    private var CatlogRecycle: RecyclerView? = null
-    private var NewsRecycle: RecyclerView? = null
+    lateinit var CatlogRecycle: RecyclerView
+    lateinit var NewsRecycle: RecyclerView
     private var news: ArrayList<NewsClass> = ArrayList()
-
+    lateinit var catdapt: CatlogAdapter
+    lateinit var newsdapt: NewsAdapter
+    val retrofitServices: RetrofitServices =
+        RetrofitClient.getClient("https://medic.madskill.ru/")
+            .create(RetrofitServices::class.java)
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -39,17 +43,76 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.CatlogRecycle = view.findViewById(R.id.rCatlo)
+        CatlogRecycle.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        this.NewsRecycle = view.findViewById(R.id.rNews)
+        NewsRecycle.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        CatlogRecycle.setOnClickListener {
+            val dialog = BottomSheetDialog(requireContext())
+            val views = layoutInflater.inflate(R.layout.bottom_sheet, null)
+            dialog.setContentView(views)
+            dialog.show()
+        }
+
+
+        val response = retrofitServices.getCatlog().enqueue(object :
+            Callback<ArrayList<CatlogClass>> {
+            override fun onResponse(
+                call: Call<ArrayList<CatlogClass>>,
+                response: Response<ArrayList<CatlogClass>>
+            ) {
+                catlogs = response.body()!!
+                catdapt = CatlogAdapter(catlogs)
+                CatlogRecycle.adapter = catdapt
+                Log.e("Allo", catlogs.toString())
+            }
+
+            override fun onFailure(call: Call<ArrayList<CatlogClass>>, t: Throwable) {
+
+            }
+        })
+        val responses = retrofitServices.getNews().enqueue(object :
+            Callback<ArrayList<NewsClass>> {
+            override fun onResponse(
+                call: Call<ArrayList<NewsClass>>,
+                responses: Response<ArrayList<NewsClass>>
+            ){
+                news = responses.body()!!
+                newsdapt = NewsAdapter(news)
+                NewsRecycle.adapter = newsdapt
+                Log.e("Allo", news.toString())
+            }
+            override fun onFailure(call: Call<ArrayList<NewsClass>>, t: Throwable) {
+            }
+        })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /* tvCatBtn.setOnClickListener {
             val dialog = BottomSheetDialog(requireContext())
             val views = layoutInflater.inflate(R.layout.bottom_sheet, null)
             dialog.setContentView(views)
             dialog.show()
-        }*/
+        }
 
         this.CatlogRecycle = view.findViewById(R.id.rCatlo)
-        val retrofitServices: RetrofitServices =
-            RetrofitClient.getClient("https://medic.madskill.ru/")
-                .create(RetrofitServices::class.java)
+
 
         val response = retrofitServices.getCatlog().enqueue(object :
             Callback<ArrayList<CatlogClass>> {
@@ -97,5 +160,5 @@ class MainFragment : Fragment() {
     }
 
 }
-
+*/
 

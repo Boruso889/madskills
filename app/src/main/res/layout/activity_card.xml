@@ -126,6 +126,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/tvCardGender"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg"
+        android:backgroundTint="#EBEBEB"
+        android:elevation="0dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textColorHint="#939396"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/edCardOt"
+        app:layout_constraintStart_toStartOf="@+id/edCardOt"
+        app:layout_constraintTop_toBottomOf="@+id/edCardFam" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_alignBottom="@id/tvCardGender"
+        android:layout_marginTop="24dp"
+        android:autofillHints="Пол"
+        android:contextClickable="false"
+        app:layout_constraintEnd_toEndOf="@+id/edCardFam"
+        app:layout_constraintStart_toStartOf="@+id/edCardFam"
+        app:layout_constraintTop_toBottomOf="@+id/edCardFam" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

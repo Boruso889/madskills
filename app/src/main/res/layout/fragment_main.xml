@@ -12,25 +12,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="148dp"
-        android:text="TextView" />
+        android:layout_marginTop="90dp"
+        android:text="Акции и новости"
+        android:textColor="#939396"
+        android:textSize="17dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rNews"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="188dp" />
+        android:layout_height="165dp"
+        android:layout_marginTop="116dp" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:text="TextView" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="290dp"
+        android:text="Каталог анализов"
+        android:textSize="16sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rCatlo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="430dp" />
+
+    <SearchView
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="35dp" />
 </FrameLayout>
