@@ -70,17 +70,4 @@
         app:layout_constraintBottom_toBottomOf="@+id/cardCatlog"
         app:layout_constraintEnd_toEndOf="@+id/cardCatlog" />
 
-    <Button
-        android:id="@+id/tvCatBtn"
-        android:layout_width="96dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
-        android:background="#1A6FEE"
-        android:gravity="center"
-        android:text="добавить"
-        android:textSize="14sp"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/cardCatlog"
-        app:layout_constraintEnd_toEndOf="@+id/cardCatlog" />
 </androidx.constraintlayout.widget.ConstraintLayout>

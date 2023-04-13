@@ -16,7 +16,7 @@ class CatlogAdapter (private val catlogs: ArrayList<CatlogClass>): RecyclerView.
         val tvCatlogPrice: TextView = itemView.findViewById(R.id.tvCatlogPrice)
         val tvCatlogTime: TextView = itemView.findViewById(R.id.tvCatlogTime)
         val CatlogBgItem: ConstraintLayout = itemView.findViewById(R.id.CatlogBgItem)
-        val tvCatBtn: Button = itemView.findViewById(R.id.tvCatBtn)
+
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
