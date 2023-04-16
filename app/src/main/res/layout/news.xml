@@ -61,6 +61,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="@+id/cardView"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/hello" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

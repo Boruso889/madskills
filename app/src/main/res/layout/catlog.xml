@@ -63,7 +63,7 @@
         android:background="@drawable/bg"
         android:backgroundTint="#1A6FEE"
         android:gravity="center"
-        android:text="добавить"
+        android:text="Добавить"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"

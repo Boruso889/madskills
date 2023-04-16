@@ -1,4 +1,4 @@
-package com.example.madskills.auth
+/*package com.example.madskills.auth
 
 import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
@@ -46,4 +46,4 @@ class ApiService : AppCompatActivity() {
     init {
         setAuthToken()
     }
-}
+}*/
