@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="40dp" />
+        tools:layout_editor_absoluteY="40dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvCatlogName"
@@ -136,6 +137,23 @@
         app:layout_constraintBottom_toBottomOf="@+id/cardcatlog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ButtonClose"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:background="@android:drawable/ic_menu_close_clear_cancel"
+        android:backgroundTint="@color/black"
+        android:onClick="onCloseButtonClicked"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCatlogName"
+        app:layout_constraintEnd_toEndOf="@+id/cardcatlog"
+        app:layout_constraintStart_toEndOf="@+id/tvCatlogName"
+        app:layout_constraintTop_toTopOf="@+id/cardcatlog"
+        app:rippleColor="@color/bgclr"
+        app:srcCompat="@android:drawable/btn_dialog" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

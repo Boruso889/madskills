@@ -21,9 +21,10 @@ import retrofit2.Response
 
 class MainFragment : Fragment() {
 
-
+    private lateinit var bottomSheetDialog: BottomSheetDialog
     private var catlogs: ArrayList<CatlogClass> = ArrayList()
     lateinit var CatlogRecycle: RecyclerView
+    lateinit var ListRecycle: RecyclerView
     lateinit var NewsRecycle: RecyclerView
     private var news: ArrayList<NewsClass> = ArrayList()
     lateinit var catdapt: CatlogAdapter
@@ -32,7 +33,7 @@ class MainFragment : Fragment() {
         RetrofitClient.getClient("https://medic.madskill.ru/")
             .create(RetrofitServices::class.java)
 
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,16 +44,20 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
+        /*this.ListRecycle = view.findViewById(R.id.rList)
+        ListRecycle.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        ListRecycle.adapter = ListAdapter(fillList())*/
+
         this.CatlogRecycle = view.findViewById(R.id.rCatlo)
         CatlogRecycle.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        bottomSheetDialog = BottomSheetDialog(requireContext())
+
+
         this.NewsRecycle = view.findViewById(R.id.rNews)
         NewsRecycle.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-        CatlogRecycle.setOnClickListener {
-            val dialog = BottomSheetDialog(requireContext())
-            val views = layoutInflater.inflate(R.layout.bottom_sheet, null)
-            dialog.setContentView(views)
-            dialog.show()
-        }
+
 
 
         val response = retrofitServices.getCatlog().enqueue(object :
@@ -71,6 +76,7 @@ class MainFragment : Fragment() {
 
             }
         })
+
         val responses = retrofitServices.getNews().enqueue(object :
             Callback<ArrayList<NewsClass>> {
             override fun onResponse(
@@ -84,8 +90,10 @@ class MainFragment : Fragment() {
             }
             override fun onFailure(call: Call<ArrayList<NewsClass>>, t: Throwable) {
             }
+
         })
     }
+
 }
 
 
@@ -95,7 +103,22 @@ class MainFragment : Fragment() {
 
 
 
+/*private fun onCardViewClicked(view: View) {
+    // Создаем BottomSheetDialog
+    val bottomSheetDialog = BottomSheetDialog(requireContext())
 
+    // Устанавливаем разметку для BottomSheetDialog
+    val view = LayoutInflater.from(context).inflate(R.layout.bottom_sheet, null)
+    bottomSheetDialog.setContentView(view)
+
+    // Показываем BottomSheetDialog
+    bottomSheetDialog.show()
+
+}
+private fun onCloseButtonClicked(view: View) {
+    // Закрываем BottomSheetDialog
+    bottomSheetDialog.dismiss() }
+*/
 
 
 

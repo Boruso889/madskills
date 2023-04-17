@@ -44,4 +44,12 @@
         android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="35dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rList"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:layout_marginTop="315sp" />
+
+
 </FrameLayout>

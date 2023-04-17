@@ -1,6 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserFragment"/>
+    tools:context=".UserFragment">
+
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Карта пациента"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/avatarka"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp"
+        android:text="Без карты пациента вы не сможете заказать анализы."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="363dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="3dp"
+        android:text="В картах пациентов будут храниться результаты анализов вас и ваших близких."
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/edCardName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg"
+        android:backgroundTint="#F5F5F9"
+        android:ems="10"
+        android:hint="Имя"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColorHint="#939396"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <EditText
+        android:id="@+id/edCardOt"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg"
+        android:backgroundTint="#F5F5F9"
+        android:ems="10"
+        android:hint="Отчество"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColorHint="#939396"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/edCardName"
+        app:layout_constraintStart_toStartOf="@+id/edCardName"
+        app:layout_constraintTop_toBottomOf="@+id/edCardName" />
+
+    <EditText
+        android:id="@+id/edCardFam"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg"
+        android:backgroundTint="#F5F5F9"
+        android:ems="10"
+        android:hint="Фамилия"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColorHint="#939396"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/edCardOt"
+        app:layout_constraintStart_toStartOf="@+id/edCardOt"
+        app:layout_constraintTop_toBottomOf="@+id/edCardOt" />
+
+    <TextView
+        android:id="@+id/tvCardCr"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/bg"
+        android:backgroundTint="#1A6FEE"
+        android:gravity="center"
+        android:text="Сохранить"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCardGender"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg"
+        android:backgroundTint="#F5F5F9"
+        android:elevation="0dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textColorHint="#939396"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/edCardOt"
+        app:layout_constraintStart_toStartOf="@+id/edCardOt"
+        app:layout_constraintTop_toBottomOf="@+id/edCardFam" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_alignBottom="@id/tvCardGender"
+        android:layout_marginTop="24dp"
+        android:autofillHints="Пол"
+        android:contextClickable="false"
+        app:layout_constraintEnd_toEndOf="@+id/edCardFam"
+        app:layout_constraintStart_toStartOf="@+id/edCardFam"
+        app:layout_constraintTop_toBottomOf="@+id/edCardFam" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
