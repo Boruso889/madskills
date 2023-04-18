@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="160dp"
+        android:layout_height="152dp"
         android:layout_marginStart="8dp"
         app:cardBackgroundColor="#76B3FF"
         app:cardCornerRadius="22dp"
@@ -22,21 +22,22 @@
 
     <TextView
         android:id="@+id/tvNewsName"
-        android:layout_width="234dp"
-        android:layout_height="36dp"
+        android:layout_width="260dp"
+        android:layout_height="49dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:text="бигбобус проверка"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="@+id/cardView" />
 
     <TextView
         android:id="@+id/tvNewsDesc"
-        android:layout_width="234dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="275dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="6dp"
         android:text="op"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/tvNewsName"
@@ -46,10 +47,11 @@
         android:id="@+id/tvNewsPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
         android:text="9999999$"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/tvNewsDesc"
         app:layout_constraintTop_toBottomOf="@+id/tvNewsDesc" />
 

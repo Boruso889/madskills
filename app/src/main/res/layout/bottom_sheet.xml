@@ -10,13 +10,14 @@
         android:id="@+id/cardcatlog"
         android:layout_width="0dp"
         android:layout_height="690dp"
+        android:background="@drawable/bottom_sheet_top_corve"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="40dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="40dp" />
 
     <TextView
         android:id="@+id/tvCatlogName"
