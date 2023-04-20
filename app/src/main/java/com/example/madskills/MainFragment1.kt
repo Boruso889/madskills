@@ -7,6 +7,7 @@ import android.provider.ContactsContract.CommonDataKinds.Im
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.madskills.databinding.ActivityMainBinding
 import com.example.madskills.databinding.ActivityMainFragment1Binding
@@ -17,6 +18,7 @@ class MainFragment1 : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainFragment1Binding
     private lateinit var bottomSheetDialog: BottomSheetDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainFragment1Binding.inflate(layoutInflater)
@@ -47,7 +49,10 @@ true
 
 
     }
-    private fun replaceFragment(fragment: Fragment){
+
+
+
+        private fun replaceFragment(fragment: Fragment){
 
         val fragmentManager = supportFragmentManager
         val fragmentTransaction =   fragmentManager.beginTransaction()
@@ -66,7 +71,12 @@ true
         // Закрываем BottomSheetDialog
         bottomSheetDialog.dismiss()
     }
-
+    fun onBtnClicked(view: View) {
+        val bottomSheetDialog = BottomSheetDialog(view.context)
+        val view = LayoutInflater.from(view.context).inflate(R.layout.bottom_sheet_buy, null)
+        bottomSheetDialog.setContentView(view)
+        bottomSheetDialog.show()
+    }
 
 
 }

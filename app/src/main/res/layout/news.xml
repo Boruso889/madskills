@@ -25,7 +25,7 @@
         android:layout_width="260dp"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="7dp"
         android:text="бигбобус проверка"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -35,8 +35,8 @@
 
     <TextView
         android:id="@+id/tvNewsDesc"
-        android:layout_width="275dp"
-        android:layout_height="60dp"
+        android:layout_width="290dp"
+        android:layout_height="70dp"
         android:layout_marginTop="6dp"
         android:text="op"
         android:textColor="#FFFFFF"
